@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 命名空间mapper：com.model.professional -->
+<mapper namespace="dao.DictionaryDao">
+    <resultMap id="DictionaryResultMap" type="Dictionary">
+        <result property="dirKey" column="dic_key"/>
+        <result property="dicLabel" column="dic_label"/>
+        <result property="dicValue" column="dic_value"/>
+        <result property="dicType" column="dic_type"/>
+        <result property="sortIndex" column="sort_index"/>
+        <result property="parentKey" column="parent_key"/>
+        <result property="isActive" column="is_active"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="description" column="description"/>
+    </resultMap>
+
+    <insert id="insertByDictionary" parameterMap="DictionaryResultMap">
+        INSERT INTO T_DICTIONATY
+        (dic_key,dic_label,dic_value,dic_type,sort_index,parent_key,is_active,update_time,description)
+         VALUES (#{dirKey},#{dicLabel},#{dicValue},#{dicType},#{sortIndex},#{parentKey},#{isActive},#{updateTime},#{description})
+    </insert>
+
+</mapper>
